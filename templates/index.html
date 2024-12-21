@@ -1,1 +1,133 @@
-<h1> Welcome to the Home Page </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FWI Prediction</title>
+  <style>
+    /* General Body Styling */
+    body {
+      background-image: url("https://wallpapers.com/images/hd/lush-green-forest-neblzag5t76yolal.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      color: whitesmoke;
+    }
+
+    /* Center the container with top padding */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Adjust vertical alignment */
+      min-height: 100vh;
+      padding-top: 30px; /* Push the card slightly up */
+      background: rgba(0, 0, 0, 0.6); /* Add a subtle overlay */
+      padding: 20px;
+    }
+
+    /* Card Style */
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      width: 350px;
+    }
+
+    .card h1 {
+      color: #f9d71c;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .card form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Input Fields */
+    input {
+      padding: 8px;
+      font-size: 1rem;
+      border: 2px solid rgb(49, 191, 6);
+      border-radius: 5px;
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+    }
+
+    input::placeholder {
+      color: #666;
+    }
+
+    input:focus {
+      border-color: #32cd32;
+      box-shadow: 0 0 5px #32cd32;
+    }
+
+    /* Submit Button */
+    button {
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #32cd32;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #28a745;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      background-color: #218838;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      .card {
+        width: 90%;
+        padding: 20px;
+      }
+
+      input {
+        font-size: 0.9rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>FWI Prediction</h1>
+      <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <input type="text" name="Temperature" placeholder="Temperature" required />
+        <input type="text" name="RH" placeholder="Relative Humidity (RH)" required />
+        <input type="text" name="Ws" placeholder="Wind Speed (Ws)" required />
+        <input type="text" name="Rain" placeholder="Rainfall (Rain)" required />
+        <input type="text" name="FFMC" placeholder="Fine Fuel Moisture Code (FFMC)" required />
+        <input type="text" name="DMC" placeholder="Duff Moisture Code (DMC)" required />
+        <input type="text" name="ISI" placeholder="Initial Spread Index (ISI)" required />
+        <input type="text" name="Classes" placeholder="Classes" required />
+        <input type="text" name="Region" placeholder="Region" required />
+        <button type="submit">Predict</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
