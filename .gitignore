@@ -1,0 +1,43 @@
+# Virtual environments
+venv/
+env/
+myenv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Model and data files
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+*.pt
+*.ckpt
+*.npy
+*.npz
+*.csv
+*.xlsx
+*.json
+*.parquet
+
+# Environment/config
+.env
+secrets.json
+config.yaml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Build
+distutils/
+build/
